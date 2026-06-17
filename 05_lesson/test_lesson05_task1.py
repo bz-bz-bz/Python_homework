@@ -8,11 +8,11 @@ def test_navigation():
     driver.get("https://httpbin.org/")
     driver.maximize_window()
     sleep(5)
-    driver.find_element(By.LINK_TEXT, "HTML form ").click
+    driver.find_element(By.LINK_TEXT, "HTML form").click()
     sleep(7)
-    assert "/forms/post" in driver.current_url, f"{"Неверный url сайта!"}"
+    assert "/forms/post" in driver.current_url, "Неверный url сайта!"
     driver.back()
     sleep(2)
-    assert driver.current_url == "https://httpbin.org/"
-    f"{"URL сайта не совпадает с driver.current_url"}"
+    assert driver.current_url == "https://httpbin.org/", "URL сайта "
+    "не совпадает c driver.current_url"
     driver.quit()
