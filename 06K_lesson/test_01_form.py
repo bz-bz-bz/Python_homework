@@ -25,7 +25,10 @@ def test_form():
     zip_classes = driver.find_element(By.ID, "zip-code").get_attribute("class")
     assert "alert-danger" in zip_classes
     form_name = ["first-name", "last-name", "address", "city", "country",
-                 "e-mail", "phone,", "job-position", "company"]
+                 "e-mail", "phone", "job-position", "company"]
     for field_id in form_name:
-        driver.find_element(By.CSS_SELECTOR, f"#{field_id}.alert-success")
+        element = driver.find_element(By.ID, field_id)
+        classes = element.get_attribute("class")
+        assert "alert-success" in classes, (
+            f"Поле '{field_id}' не подсвечено зеленым!")
     driver.quit()
