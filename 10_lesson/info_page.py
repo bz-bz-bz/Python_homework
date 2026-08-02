@@ -53,7 +53,7 @@ class Information_Page:
         """
         self.wait.until(EC.element_to_be_clickable(self.CONTINUE)).click()
 
-    def full_info_form(
+    def fill_info_form(
         self, firstname: str, lastname: str, postal_code: str
     ) -> None:
         """Последовательное заполнение формы и ее отправка
